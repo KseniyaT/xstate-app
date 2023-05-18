@@ -1,25 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import FileUploader from './components/FileUploader';
 
-function App() {
+const App = () => {
+  const [status, setStatus] = useState('');
+
+  const handleUploadStatus = (state: string): void => {
+    setStatus(state);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <FileUploader onUploadStatus={handleUploadStatus} />
+      <div className="row">
+        <section className="section col s12 m8 offset-m1 xl8 offset-xl2 block-container">
+          <div className="card">
+            <div className="card-content">
+              <p>Upload status: <span>{status}</span></p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
   );
 }
 

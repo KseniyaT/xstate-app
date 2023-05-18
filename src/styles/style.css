@@ -1,0 +1,14 @@
+.block-container {
+  position: relative;
+}
+
+.block-spinner {
+  position: absolute;
+  z-index: 10;
+  top: calc(50% - 32px);
+  left: calc(50% - 32px);
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
